@@ -1,0 +1,22 @@
+services:
+  ndaseal-util:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ndaseal-util:local
+    environment:
+      OCR_HOST: 0.0.0.0
+      OCR_PORT: 8090
+      LOG_LEVEL: info
+      OCR_WARM_UP: "true"
+    ports:
+      - "8090:8090"
+    volumes:
+      - ocr-cache:/home/appuser/.cache
+      - rapidocr-cache:/home/appuser/.rapidocr
+    restart: unless-stopped
+
+volumes:
+  ocr-cache:
+  rapidocr-cache:
+

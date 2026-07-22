@@ -1,0 +1,2 @@
+"""NDASeal OCR sidecar package."""
+
