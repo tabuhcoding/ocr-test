@@ -1,12 +1,12 @@
 fastapi==0.115.12
 uvicorn==0.34.0
 python-multipart==0.0.20
-# PaddleOCR 2.x API (ocr.ocr); 3.x renamed the API and needs newer Python.
-paddleocr==2.9.1
-paddlepaddle==3.0.0
-# paddleocr imports cv2; headless build avoids GUI deps.
+# PP-OCR detection+recognition on ONNXRuntime — same models as PaddleOCR but no
+# paddle runtime, so no macOS "No allocator found for the place" crash.
+rapidocr-onnxruntime==1.4.4
+# rapidocr imports cv2; headless build avoids GUI deps.
 opencv-python-headless==4.10.0.84
-# Vietnamese recognition model (runs on the crops PaddleOCR detects).
+# Vietnamese recognition model (runs on the crops RapidOCR detects).
 # vietocr does not declare torch — install it explicitly.
 vietocr==0.3.13
 torch>=2.5
